@@ -18,3 +18,9 @@ def ws_queue(queue_name: str):
         return wrapper
 
     return decorator
+
+####################################################
+#                                                     #
+#               Made by Dusky Fox                     #
+#                                                     #
+#######################################################

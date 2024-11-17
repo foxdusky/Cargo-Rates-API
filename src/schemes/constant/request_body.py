@@ -1,7 +1,6 @@
 from datetime import date
-from typing import Literal, Dict, List
+from typing import Literal
 
-from pydantic.v1 import BaseModel
 from sqlmodel import SQLModel, Field
 
 
@@ -25,10 +24,26 @@ class GetALLRequestBody(SQLModel):
     # In child class filter names as search_filter: ClassOfTheMainObject
 
 
-class _CargoRate(BaseModel):
+class _CargoRate(SQLModel):
+    cargo_name: str = Field(
+        description="Type of cargo",
+        nullable=False,
+    )
+    rate: float = Field(
+        description="Insurance rate in float percent",
+        nullable=False,
+    )
+
+
+class RatesByDate(SQLModel):
+    ins_date: date = Field(
+        description="Date of insurance rates",
+        nullable=False,
+    )
+    rates: list[_CargoRate]
+
+
+class InsuranceCostRequest(SQLModel):
+    declared_value: float
     cargo_type: str
-    rate: str
-
-
-class InsuranceRateUpload(BaseModel):
-    __root__: Dict[date, List[_CargoRate]]
+    ins_date: date | None = None

@@ -5,6 +5,7 @@ from fastapi import WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
 from configs.env import IS_DEV_ENV
+from controllers.insurance.insurance_controller import insurance_router
 from controllers.user.auth_controller import auth_router
 from controllers.user.user_controller import user_router
 from ws import ws_manager
@@ -30,6 +31,7 @@ app.include_router(auth_router)
 # ############################### #
 
 app.include_router(user_router)
+app.include_router(insurance_router)
 
 
 # ############################### #

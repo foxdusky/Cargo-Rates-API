@@ -1,10 +1,20 @@
+from sqlalchemy.orm import joinedload
 from sqlmodel import Session, select
 
 from schemes.insurance.insurance_scheme import InsuranceRate
+from datetime import date
 
 
 def get_insurance_rate_by_id(session: Session, insurance_id: int) -> InsuranceRate | None:
     st = select(InsuranceRate).where(InsuranceRate.id == insurance_id)
+    return session.exec(st).first()
+
+
+def get_insurance_by_cargo_id_and_date(session: Session, cargo_id: int, insurance_date: date) -> InsuranceRate | None:
+    st = select(InsuranceRate)
+    st = st.where(InsuranceRate.insurance_date == insurance_date)
+    st = st.where(InsuranceRate.cargo_type_id == cargo_id)
+    st = st.options(joinedload(InsuranceRate.cargo))
     return session.exec(st).first()
 
 

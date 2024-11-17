@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, UploadFile, BackgroundTasks, File
+from fastapi import APIRouter, Depends
 from sqlmodel import Session
 
 from constant.ws_queues import WSQueue
@@ -7,7 +7,7 @@ from models.user import user_model
 from models.user.auth_model import get_current_user
 from models.user.auth_model import sign_in
 from schemes.user.auth_scheme import AuthToken
-from schemes.user.user_scheme import User
+from schemes.user.user_scheme import User, RegistrationRequest, UpdateUserRequest
 
 queue_name = WSQueue.USER
 
@@ -44,7 +44,7 @@ user_router = APIRouter(
         },
     })
 def registration(
-    user: User = Depends(),
+    user: RegistrationRequest = Depends(),
     session: Session = Depends(get_session),
 ):
     password = user.password
@@ -73,10 +73,11 @@ async def get_user_by_id(
 
 @user_router.put("/", response_model=User, description="Function for update profile by user him own self")
 async def update_user(
-    user: User,
+    user: UpdateUserRequest,
     session: Session = Depends(get_session),
     current_user: User = Depends(get_current_user),
 ):
+    user = User(**user.model_dump())
     return user_model.update_user(session, user, current_user)
 
 

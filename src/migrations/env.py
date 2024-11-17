@@ -6,6 +6,11 @@ from sqlalchemy import pool
 from alembic import context
 from sqlmodel import SQLModel
 
+#########################################################
+#                                                     #
+#               Made by Dusky Fox                     #
+#                                                     #
+#########################################################
 from configs.env import DB_CON_STR
 
 # this is the Alembic Config object, which provides

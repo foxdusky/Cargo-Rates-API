@@ -1,6 +1,7 @@
 from datetime import datetime, date
 
 from sqlmodel import SQLModel, Field, Relationship
+from decimal import Decimal
 
 
 class InsuranceRateBase(SQLModel):
@@ -14,3 +15,7 @@ class InsuranceRateBase(SQLModel):
 class InsuranceRate(InsuranceRateBase, table=True):
     __tablename__ = 'insurance_rate'
     cargo: "CargoType" = Relationship(back_populates='rates')
+
+
+class InsuranceCost(InsuranceRateBase):
+    insurance_price: Decimal | None = None

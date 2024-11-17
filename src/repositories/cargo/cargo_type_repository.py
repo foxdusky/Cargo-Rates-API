@@ -3,6 +3,11 @@ from sqlmodel import Session, select
 from schemes.cargo.cargo_type_scheme import CargoType
 
 
+def get_cargo_by_uniquename(session: Session, name: str) -> CargoType | None:
+    st = select(CargoType).where(CargoType.name == name)
+    return session.exec(st).first()
+
+
 def get_cargo_type_by_id(session: Session, cargo_type_id: int) -> CargoType | None:
     st = select(CargoType).where(CargoType.id == cargo_type_id)
     return session.exec(st).first()

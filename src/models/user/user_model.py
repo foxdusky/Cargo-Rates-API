@@ -10,7 +10,7 @@ def _check_operation_available(current_user: User, user_on_action: User) -> None
     """
     A function that checks that the user is trying to change their data
     """
-    if current_user.id != user_on_action:
+    if current_user.id != user_on_action.id:
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail=f"Access denied",

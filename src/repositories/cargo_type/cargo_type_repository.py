@@ -1,6 +1,6 @@
 from sqlmodel import Session, select
 
-from schemes.cargo_type.cargo_type_scheme import CargoType
+from schemes.cargo.cargo_type_scheme import CargoType
 
 
 def get_cargo_type_by_id(session: Session, cargo_type_id: int) -> CargoType | None:

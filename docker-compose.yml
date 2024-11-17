@@ -16,7 +16,6 @@ services:
     volumes:
       - ./src:/app/src
       - ./.env:/app/.env
-      - pics:${PICTURES_DIR}
       - ${SSL_KEY_FILE}:/app/key_file.pem
       - ${SSL_CERT_FILE}:/app/ssl_cert.pem
 

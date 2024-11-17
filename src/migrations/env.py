@@ -26,8 +26,8 @@ if config.config_file_name is not None:
 
 # ------- Our Models ------- #
 from schemes.user.user_scheme import User
-from schemes.insurance_rate.insurance_scheme import InsuranceRate
-from schemes.cargo_type.cargo_type_scheme import CargoType
+from schemes.cargo.cargo_type_scheme import CargoType
+from schemes.insurance.insurance_scheme import InsuranceRate
 
 # -------------------------- #
 

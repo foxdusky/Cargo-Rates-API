@@ -1,6 +1,6 @@
 from sqlmodel import Session, select
 
-from schemes.insurance_rate.insurance_scheme import InsuranceRate
+from schemes.insurance.insurance_scheme import InsuranceRate
 
 
 def get_insurance_rate_by_id(session: Session, insurance_id: int) -> InsuranceRate | None:

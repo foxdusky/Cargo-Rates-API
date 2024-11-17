@@ -3,9 +3,8 @@ from fastapi import FastAPI
 from fastapi import WebSocket
 from fastapi import WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
 
-from configs.env import PICTURES_DIR, IS_DEV_ENV
+from configs.env import IS_DEV_ENV
 from controllers.user.auth_controller import auth_router
 from controllers.user.user_controller import user_router
 from ws import ws_manager
@@ -24,8 +23,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-app.mount("/static", StaticFiles(directory=PICTURES_DIR), name="static")
 
 # Auth sector
 app.include_router(auth_router)

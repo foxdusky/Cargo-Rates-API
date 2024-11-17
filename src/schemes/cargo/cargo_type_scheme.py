@@ -9,11 +9,6 @@ class CargoTypeBase(SQLModel):
     created_at: datetime | None = Field(default_factory=datetime.utcnow)
 
 
-class CargoType(CargoTypeBase):
+class CargoType(CargoTypeBase, table=True):
     __tablename__ = 'cargo_type'
-    insurance_rate: list["InsuranceRate"] = Relationship(back_populates='cargo')
-
-
-from schemes.insurance_rate.insurance_scheme import InsuranceRate
-
-CargoType.model_rebuild()
+    rates: list["InsuranceRate"] = Relationship(back_populates='cargo')

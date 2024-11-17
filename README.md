@@ -15,26 +15,18 @@ registration, it gives the token
 
 Endpoint for getting information about the current user.
 
-## POST api/clients/{id}/match
-
-Endpoint to mark "like" another user by their id
-
-## POST api/list
-
-Endpoint to get a list of all users with filtering and sorting by all fields, as well as pagination
-
 # Deploy
 
 Execute the command
 
 ~~~
-git clone https://github.com/foxdusky/Dating-backend.git
+git clone https://github.com/foxdusky/Cargo-Rates-API.git
 ~~~
 
 OR
 
 ~~~
-gh repo clone foxdusky/Dating-backend
+gh repo clone foxdusky/Cargo-Rates-API
 ~~~
 
 create an env file in the root of the repository
@@ -50,7 +42,7 @@ IS_DEV_ENV=1
 SECRET_KEY='YOUR_SECRET_KEY'
 
 POSTGRES_USER='YOUR_POSTGRES_USER'
-POSTGRES_PASSWORD=''YOUR_POSTGRES_PASSWORD
+POSTGRES_PASSWORD='YOUR_POSTGRES_PASSWORD'
 
 #REPLACE @POSTGRES_USER:@POSTGRES_PASSWORD TO THE REAL ONE
 
@@ -60,19 +52,11 @@ DB_CON_STR=postgresql://@POSTGRES_USER:@POSTGRES_PASSWORD@db:5432/postgres
 #REPLACE @POSTGRES_USER:@POSTGRES_PASSWORD TO THE REAL ONE
 #DB_CON_STR=postgresql://@POSTGRES_USER:@POSTGRES_PASSWORD@localhost:5432/postgres
 
-PICTURES_DIR=/app/pics
 
 # REPLACE THAT TO REAL PATHS IF THAT IS PROD ENVIRONMENT
 SSL_KEY_FILE=./.env
 SSL_CERT_FILE=./.env
 
-REDIS_HOST=redis-server
-REDIS_PORT=6379
-
-RESEND_API_KEY='YOUR_RESEND_KEY'
-
-#int value
-MATCHING_REQUEST_DAILY_LIMITATION='YOUR_VALUE_OF_USER_DAILY_LIMIT_FOR_MATCHING'
 
 ~~~
 

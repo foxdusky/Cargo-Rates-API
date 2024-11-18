@@ -1,6 +1,6 @@
-# Dating API
+# Cargo-Rates API
 
-This API is a minimal backend component for a dating app
+This API is designed to calculate the cost of cargo insurance based on data from the database
 
 # [Project Structure](./project-structure.md)
 
@@ -8,7 +8,7 @@ This API is a minimal backend component for a dating app
 
 ## POST api/user/create/
 
-Endpoint for registering a new client has a username & e_mail uniqueness check under the hood. After successful
+Endpoint for registering a new client has a username uniqueness check under the hood. After successful
 registration, it gives the token
 
 ## GET api/user/current/

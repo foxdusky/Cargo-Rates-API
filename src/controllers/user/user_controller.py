@@ -12,8 +12,8 @@ from schemes.user.user_scheme import User, RegistrationRequest, UpdateUserReques
 queue_name = WSQueue.USER
 
 user_router = APIRouter(
-    prefix="/clients",
-    tags=["Clients"]
+    prefix="/user",
+    tags=["User"]
 )
 
 

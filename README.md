@@ -6,14 +6,22 @@ This API is a minimal backend component for a dating app
 
 # Edpoints
 
-## POST api/clients/create/
+## POST api/user/create/
 
 Endpoint for registering a new client has a username & e_mail uniqueness check under the hood. After successful
 registration, it gives the token
 
-## GET api/clients/current/
+## GET api/user/current/
 
 Endpoint for getting information about the current user.
+
+## POST api/insurance/upload/
+
+Endpoint for uploading data about insurance rates
+
+## POST api/insurance/cost/
+
+Endpoint for getting insurance cost by declared value, cargo type and date
 
 # Deploy
 
